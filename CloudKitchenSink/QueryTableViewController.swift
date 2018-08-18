@@ -97,7 +97,7 @@ class QueryTableViewController: UITableViewController {
         return NSPredicate(format: "self contains %@", title)
     }
     
-    private func predicate(closeTo location: CLLocation, radius: Float = 500.0) -> NSPredicate {
+    private func predicate(closeTo location: CLLocation, radius: Float = 500000000.0) -> NSPredicate {
         return NSPredicate(format: "distanceToLocation:fromLocation:(location, %@) < %f", location, radius)
     }
     

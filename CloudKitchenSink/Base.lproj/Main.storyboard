@@ -204,6 +204,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="iCloud User" id="bYd-Ye-Fir"/>
                     <connections>
+                        <outlet property="avatarContainerView" destination="L1C-2Y-gNF" id="vwu-OK-lBR"/>
                         <outlet property="avatarImageView" destination="QUm-yc-zyq" id="gCb-R5-REz"/>
                         <outlet property="avatarSpinner" destination="5bb-AW-yf3" id="3DK-xU-GnR"/>
                         <outlet property="idLabel" destination="tef-5H-nFm" id="ktc-Yx-hD3"/>
@@ -277,7 +278,7 @@
         <scene sceneID="0yp-SD-akm">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UlP-FQ-Mef" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="NRb-8U-TES" customClass="SimpleRecordTableViewController" sceneMemberID="viewController">
+                <tableViewController id="NRb-8U-TES" customClass="SimpleRecordTableViewController" customModule="iCloudChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="pK1-Fu-To1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -496,7 +497,7 @@
         <!--Query-->
         <scene sceneID="PLb-aA-MkX">
             <objects>
-                <tableViewController id="zxy-Dc-MKC" customClass="QueryTypeSelectorTableViewController" sceneMemberID="viewController">
+                <tableViewController id="zxy-Dc-MKC" customClass="QueryTypeSelectorTableViewController" customModule="iCloudChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="atI-6J-975">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -600,7 +601,7 @@
         <!--Query Table View Controller-->
         <scene sceneID="ybh-Rf-J7H">
             <objects>
-                <tableViewController id="ZsY-84-r1J" customClass="QueryTableViewController" customModule="CloudKitchenSink" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ZsY-84-r1J" customClass="QueryTableViewController" customModule="iCloudChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Df-qB-cLk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

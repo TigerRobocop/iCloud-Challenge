@@ -15,12 +15,22 @@ class SubscribeViewController: UIViewController {
 
     @IBOutlet weak var subscribeButton: UIButton!
     
+    @IBAction func subscribe(_ sender: Any) {
+        if isSubscribed {
+            cancelSubscription()
+        } else {
+//            cancelSubscription()
+            createSubscription()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         checkSubscriptionStatus()
     }
     
+
     fileprivate var isSubscribed = false {
         didSet {
             subscribeButton.setTitle(isSubscribed ? "Cancel Subscription" : "Subscribe", for: .normal)
@@ -32,6 +42,7 @@ class SubscribeViewController: UIViewController {
             return UserDefaults.standard.object(forKey: "subscriptionID") as? String
         }
         set {
+            print(newValue)
             UserDefaults.standard.set(newValue, forKey: "subscriptionID")
         }
     }
@@ -115,13 +126,5 @@ class SubscribeViewController: UIViewController {
         container.publicCloudDatabase.add(operation)
     }
     
-    @IBAction func subscribe(_ sender: Any) {
-        if isSubscribed {
-            cancelSubscription()
-        } else {
-            createSubscription()
-        }
-    }
-
 
 }
