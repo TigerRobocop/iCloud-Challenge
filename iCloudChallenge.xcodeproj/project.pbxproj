@@ -27,7 +27,7 @@
 		DD23C1421E7EDE49009E0F24 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		DD501A601E75BE6D00EBD001 /* QueryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTableViewController.swift; sourceTree = "<group>"; };
 		DD501A621E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTypeSelectorTableViewController.swift; sourceTree = "<group>"; };
-		DD96F40D1E6C4BA500CABB08 /* CloudKitchenSink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitchenSink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD96F40D1E6C4BA500CABB08 /* iCloudChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD96F4101E6C4BA500CABB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD96F4121E6C4BA500CABB08 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		DD96F4151E6C4BA500CABB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		DD96F40E1E6C4BA500CABB08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD96F40D1E6C4BA500CABB08 /* CloudKitchenSink.app */,
+				DD96F40D1E6C4BA500CABB08 /* iCloudChallenge.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DD96F40C1E6C4BA500CABB08 /* CloudKitchenSink */ = {
+		DD96F40C1E6C4BA500CABB08 /* iCloudChallenge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD96F41F1E6C4BA500CABB08 /* Build configuration list for PBXNativeTarget "CloudKitchenSink" */;
+			buildConfigurationList = DD96F41F1E6C4BA500CABB08 /* Build configuration list for PBXNativeTarget "iCloudChallenge" */;
 			buildPhases = (
 				DD96F4091E6C4BA500CABB08 /* Sources */,
 				DD96F40A1E6C4BA500CABB08 /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = CloudKitchenSink;
+			name = iCloudChallenge;
 			productName = CloudKitchenSink;
-			productReference = DD96F40D1E6C4BA500CABB08 /* CloudKitchenSink.app */;
+			productReference = DD96F40D1E6C4BA500CABB08 /* iCloudChallenge.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DD96F4081E6C4BA500CABB08 /* Build configuration list for PBXProject "CloudKitchenSink" */;
+			buildConfigurationList = DD96F4081E6C4BA500CABB08 /* Build configuration list for PBXProject "iCloudChallenge" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD96F40C1E6C4BA500CABB08 /* CloudKitchenSink */,
+				DD96F40C1E6C4BA500CABB08 /* iCloudChallenge */,
 			);
 		};
 /* End PBXProject section */
@@ -369,7 +369,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD96F4081E6C4BA500CABB08 /* Build configuration list for PBXProject "CloudKitchenSink" */ = {
+		DD96F4081E6C4BA500CABB08 /* Build configuration list for PBXProject "iCloudChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD96F41D1E6C4BA500CABB08 /* Debug */,
@@ -378,7 +378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD96F41F1E6C4BA500CABB08 /* Build configuration list for PBXNativeTarget "CloudKitchenSink" */ = {
+		DD96F41F1E6C4BA500CABB08 /* Build configuration list for PBXNativeTarget "iCloudChallenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD96F4201E6C4BA500CABB08 /* Debug */,

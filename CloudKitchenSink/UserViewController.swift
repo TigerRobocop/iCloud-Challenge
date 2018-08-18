@@ -25,6 +25,8 @@ class UserViewController: UIViewController {
     
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    let name = "Liv"
+    
     var userRecord: CKRecord? {
         didSet {
             if let userRecord = userRecord {
