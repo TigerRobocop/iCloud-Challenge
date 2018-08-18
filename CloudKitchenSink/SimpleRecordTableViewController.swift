@@ -7,89 +7,141 @@
 //
 
 import UIKit
+import CloudKit
+import CoreLocation
+
+enum MovieKey: String {
+    case title
+    case releaseDate
+    case location
+    case rating
+}
+
+extension CKRecord {
+    
+    subscript(key: MovieKey) -> Any? {
+        get {
+            return self[key.rawValue]
+        }
+        set {
+            self[key.rawValue] = newValue as? CKRecordValue
+        }
+    }
+    
+}
+
+extension String {
+    
+    init?(_ placemark: CLPlacemark) {
+        guard let country = placemark.country, let locality = placemark.locality else { return nil }
+        
+        self = "\(locality), \(country)"
+    }
+    
+}
+
+
 
 class SimpleRecordTableViewController: UITableViewController {
-
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var ratingSlider: UISlider!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var record = CKRecord(recordType: "Movie")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    @IBAction func titleFieldAction(_ sender: Any) {
+        guard let title = titleField.text else { return }
+        
+        record[.title] = title
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    @IBAction func releaseDateFieldAction(_ sender: Any) {
+        guard let dateString = dateField.text else { return }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        guard let date = formatter.date(from: dateString) else { return }
+        
+        record[.releaseDate] = date
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBAction func locationFieldAction(_ sender: Any) {
+        guard let locationString = locationField.text else { return }
+        
+        CLGeocoder().geocodeAddressString(locationString) { placemarks, error in
+            guard let placemark = placemarks?.first, error == nil else { return }
+            
+            self.record[.location] = placemark.location
+            
+            DispatchQueue.main.async {
+                self.locationField.text = String(placemark)
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @IBAction func ratingSliderAction(_ sender: Any) {
+        let value = Int(ceil(ratingSlider.value))
+        
+        record[.rating] = value
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    @IBAction func save(_ sender: Any) {
+        saveButton.isEnabled = false
+        saveButton.isHidden = true
+        activityIndicator.startAnimating()
+        
+        container.publicCloudDatabase.save(record) { [unowned self] _, error in
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.saveButton.isEnabled = true
+                self.saveButton.isHidden = false
+                
+                if let error = error {
+                    let alert = UIAlertController(title: "CloudKit error", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.clear()
+                }
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func clear() {
+        titleField.text = nil
+        dateField.text = nil
+        locationField.text = nil
+        ratingSlider.value = 0
+        
+        record = CKRecord(recordType: "Movie")
+        
+        _ = titleField.becomeFirstResponder()
+        _ = dateField.becomeFirstResponder()
+        _ = locationField.becomeFirstResponder()
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
