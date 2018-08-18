@@ -7,36 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD0745001E7ED46E00C231DE /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0744FF1E7ED46E00C231DE /* SubscriptionViewController.swift */; };
+		5701445321285ABE001F7DC7 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701445221285ABE001F7DC7 /* UserViewController.swift */; };
+		5701445521285B01001F7DC7 /* SimpleRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701445421285B01001F7DC7 /* SimpleRecordTableViewController.swift */; };
+		5701445721285B4D001F7DC7 /* QueryTypeSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701445621285B4D001F7DC7 /* QueryTypeSelectorTableViewController.swift */; };
+		5701445921285BF9001F7DC7 /* QueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701445821285BF9001F7DC7 /* QueryTableViewController.swift */; };
+		5701445B21285C18001F7DC7 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5701445A21285C18001F7DC7 /* SubscribeViewController.swift */; };
+		DD0745001E7ED46E00C231DE /* _CopySubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0744FF1E7ED46E00C231DE /* _CopySubscriptionViewController.swift */; };
 		DD23C1431E7EDE49009E0F24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD23C1421E7EDE49009E0F24 /* Localizable.strings */; };
-		DD501A611E75BE6D00EBD001 /* QueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD501A601E75BE6D00EBD001 /* QueryTableViewController.swift */; };
-		DD501A631E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD501A621E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift */; };
+		DD501A611E75BE6D00EBD001 /* _CopyQueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD501A601E75BE6D00EBD001 /* _CopyQueryTableViewController.swift */; };
+		DD501A631E75BF7700EBD001 /* _CopyQueryTypeSelectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD501A621E75BF7700EBD001 /* _CopyQueryTypeSelectorTableViewController.swift */; };
 		DD96F4111E6C4BA500CABB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F4101E6C4BA500CABB08 /* AppDelegate.swift */; };
-		DD96F4131E6C4BA500CABB08 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F4121E6C4BA500CABB08 /* UserViewController.swift */; };
+		DD96F4131E6C4BA500CABB08 /* _CopyUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F4121E6C4BA500CABB08 /* _CopyUserViewController.swift */; };
 		DD96F4161E6C4BA500CABB08 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD96F4141E6C4BA500CABB08 /* Main.storyboard */; };
 		DD96F4181E6C4BA500CABB08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD96F4171E6C4BA500CABB08 /* Assets.xcassets */; };
 		DD96F41B1E6C4BA500CABB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD96F4191E6C4BA500CABB08 /* LaunchScreen.storyboard */; };
 		DD96F4251E6C4BE200CABB08 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD96F4241E6C4BE200CABB08 /* CloudKit.framework */; };
-		DD96F42C1E6C59ED00CABB08 /* SimpleRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F42B1E6C59ED00CABB08 /* SimpleRecordTableViewController.swift */; };
+		DD96F42C1E6C59ED00CABB08 /* _CopySimpleRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD96F42B1E6C59ED00CABB08 /* _CopySimpleRecordTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD0744FF1E7ED46E00C231DE /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		5701445221285ABE001F7DC7 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		5701445421285B01001F7DC7 /* SimpleRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecordTableViewController.swift; sourceTree = "<group>"; };
+		5701445621285B4D001F7DC7 /* QueryTypeSelectorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTypeSelectorTableViewController.swift; sourceTree = "<group>"; };
+		5701445821285BF9001F7DC7 /* QueryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTableViewController.swift; sourceTree = "<group>"; };
+		5701445A21285C18001F7DC7 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
+		DD0744FF1E7ED46E00C231DE /* _CopySubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CopySubscriptionViewController.swift; sourceTree = "<group>"; };
 		DD23C1401E7EDDDE009E0F24 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		DD23C1411E7EDDDE009E0F24 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		DD23C1421E7EDE49009E0F24 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		DD501A601E75BE6D00EBD001 /* QueryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTableViewController.swift; sourceTree = "<group>"; };
-		DD501A621E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryTypeSelectorTableViewController.swift; sourceTree = "<group>"; };
+		DD501A601E75BE6D00EBD001 /* _CopyQueryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CopyQueryTableViewController.swift; sourceTree = "<group>"; };
+		DD501A621E75BF7700EBD001 /* _CopyQueryTypeSelectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CopyQueryTypeSelectorTableViewController.swift; sourceTree = "<group>"; };
 		DD96F40D1E6C4BA500CABB08 /* iCloudChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCloudChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD96F4101E6C4BA500CABB08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD96F4121E6C4BA500CABB08 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		DD96F4121E6C4BA500CABB08 /* _CopyUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _CopyUserViewController.swift; sourceTree = "<group>"; };
 		DD96F4151E6C4BA500CABB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD96F4171E6C4BA500CABB08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD96F41A1E6C4BA500CABB08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD96F41C1E6C4BA500CABB08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD96F4221E6C4BDE00CABB08 /* CloudKitchenSink.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitchenSink.entitlements; sourceTree = "<group>"; };
 		DD96F4241E6C4BE200CABB08 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		DD96F42B1E6C59ED00CABB08 /* SimpleRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRecordTableViewController.swift; sourceTree = "<group>"; };
+		DD96F42B1E6C59ED00CABB08 /* _CopySimpleRecordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _CopySimpleRecordTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +112,16 @@
 		DD96F4271E6C4D7900CABB08 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DD96F4121E6C4BA500CABB08 /* UserViewController.swift */,
-				DD96F42B1E6C59ED00CABB08 /* SimpleRecordTableViewController.swift */,
-				DD501A621E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift */,
-				DD501A601E75BE6D00EBD001 /* QueryTableViewController.swift */,
-				DD0744FF1E7ED46E00C231DE /* SubscriptionViewController.swift */,
+				5701445221285ABE001F7DC7 /* UserViewController.swift */,
+				DD96F4121E6C4BA500CABB08 /* _CopyUserViewController.swift */,
+				5701445421285B01001F7DC7 /* SimpleRecordTableViewController.swift */,
+				DD96F42B1E6C59ED00CABB08 /* _CopySimpleRecordTableViewController.swift */,
+				5701445621285B4D001F7DC7 /* QueryTypeSelectorTableViewController.swift */,
+				DD501A621E75BF7700EBD001 /* _CopyQueryTypeSelectorTableViewController.swift */,
+				5701445821285BF9001F7DC7 /* QueryTableViewController.swift */,
+				DD501A601E75BE6D00EBD001 /* _CopyQueryTableViewController.swift */,
+				5701445A21285C18001F7DC7 /* SubscribeViewController.swift */,
+				DD0744FF1E7ED46E00C231DE /* _CopySubscriptionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -199,12 +214,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0745001E7ED46E00C231DE /* SubscriptionViewController.swift in Sources */,
-				DD96F42C1E6C59ED00CABB08 /* SimpleRecordTableViewController.swift in Sources */,
-				DD96F4131E6C4BA500CABB08 /* UserViewController.swift in Sources */,
+				5701445521285B01001F7DC7 /* SimpleRecordTableViewController.swift in Sources */,
+				5701445321285ABE001F7DC7 /* UserViewController.swift in Sources */,
+				DD0745001E7ED46E00C231DE /* _CopySubscriptionViewController.swift in Sources */,
+				DD96F42C1E6C59ED00CABB08 /* _CopySimpleRecordTableViewController.swift in Sources */,
+				5701445921285BF9001F7DC7 /* QueryTableViewController.swift in Sources */,
+				DD96F4131E6C4BA500CABB08 /* _CopyUserViewController.swift in Sources */,
 				DD96F4111E6C4BA500CABB08 /* AppDelegate.swift in Sources */,
-				DD501A611E75BE6D00EBD001 /* QueryTableViewController.swift in Sources */,
-				DD501A631E75BF7700EBD001 /* QueryTypeSelectorTableViewController.swift in Sources */,
+				5701445B21285C18001F7DC7 /* SubscribeViewController.swift in Sources */,
+				DD501A611E75BE6D00EBD001 /* _CopyQueryTableViewController.swift in Sources */,
+				DD501A631E75BF7700EBD001 /* _CopyQueryTypeSelectorTableViewController.swift in Sources */,
+				5701445721285B4D001F7DC7 /* QueryTypeSelectorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

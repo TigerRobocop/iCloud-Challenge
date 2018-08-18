@@ -1,5 +1,5 @@
 //
-//  UserViewController.swift
+//  SubscribeViewController.swift
 //  iCloudChallenge
 //
 //  Created by Aluno on 18/08/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class SubscribeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

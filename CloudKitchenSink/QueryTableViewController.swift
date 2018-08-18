@@ -1,219 +1,95 @@
 //
 //  QueryTableViewController.swift
-//  CloudKitchenSink
+//  iCloudChallenge
 //
-//  Created by Guilherme Rambo on 12/03/17.
-//  Copyright © 2017 Guilherme Rambo. All rights reserved.
+//  Created by Aluno on 18/08/18.
+//  Copyright © 2018 Guilherme Rambo. All rights reserved.
 //
 
 import UIKit
-import CloudKit
-import CoreLocation
 
-enum QueryType: String {
-    
-    case all
-    case title
-    case location
-    
-    var title: String {
-        switch self {
-        case .all:
-            return "All Records"
-        case .title:
-            return "Search by Title"
-        case .location:
-            return "Search by Location"
-        }
-    }
-    
-}
+class QueryTableViewController: UITableViewController {
 
-final class QueryTableViewController: UITableViewController {
-    
-    @IBOutlet weak var searchContainer: UIStackView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
-    
-    fileprivate var currentLocation: CLLocation? {
-        didSet {
-            DispatchQueue.main.async {
-                self.search(self)
-            }
-        }
-    }
-    
-    fileprivate var movies: [CKRecord] = [] {
-        didSet {
-            tableView.reloadSections([0], with: .automatic)
-        }
-    }
-    
-    var queryType: QueryType? {
-        didSet {
-            guard let queryType = queryType else { return }
-            
-            title = queryType.title
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        guard let queryType = queryType else { return }
-        
-        if queryType != .title {
-            tableView.tableHeaderView = nil
-            search(self)
-        } else {
-            _ = textField.becomeFirstResponder()
-        }
-    }
-    
-    private lazy var locationManager: CLLocationManager = {
-        let m = CLLocationManager()
-        
-        m.distanceFilter = kCLDistanceFilterNone
-        m.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-        m.delegate = self
-        
-        return m
-    }()
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-    }
-    
-    private func predicate(with title: String) -> NSPredicate {
-        return NSPredicate(format: "self contains %@", title)
-    }
-    
-    private func predicate(closeTo location: CLLocation, radius: Float = 500.0) -> NSPredicate {
-        return NSPredicate(format: "distanceToLocation:fromLocation:(location, %@) < %f", location, radius)
-    }
-    
-    private func predicateForAll() -> NSPredicate {
-        return NSPredicate(value: true)
-    }
-    
-    private var currentOperation: CKDatabaseOperation?
-    
-    fileprivate func showLocationAlert() {
-        let alert = UIAlertController(title: "No Location", message: "Sorry, I don't know your location", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func search(_ sender: Any) {
-        guard let queryType = self.queryType else { return }
-        
-        currentOperation?.cancel()
-        
-        let predicate: NSPredicate
-        
-        switch queryType {
-        case .all:
-            predicate = self.predicateForAll()
-        case .title:
-            predicate = self.predicate(with: textField.text ?? "")
-        case .location:
-            if let location = currentLocation {
-                predicate = self.predicate(closeTo: location)
-            } else {
-                // wait for the location to become available
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
-                return
-            }
-        }
-        
-        let query = CKQuery(recordType: "Movie", predicate: predicate)
-        
-        self.perform(query: query) { [weak self] movieRecords, error in
-            self?.movies = movieRecords
-        }
-    }
-    
-    private var fetchedRecords: [CKRecord] = []
-    
-    private func perform(query: CKQuery, inputCursor: CKQueryCursor? = nil, completion: @escaping ([CKRecord], Error?) -> Void) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        searchButton?.isEnabled = false
-        
-        let operation: CKQueryOperation
-        
-        if let inputCursor = inputCursor {
-            operation = CKQueryOperation(cursor: inputCursor)
-        } else {
-            operation = CKQueryOperation(query: query)
-        }
-        
-        operation.recordFetchedBlock = { [weak self] record in
-            self?.fetchedRecords.append(record)
-        }
-        
-        operation.queryCompletionBlock = { [weak self] cursor, error in
-            guard let welf = self else { return }
-            
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                welf.searchButton?.isEnabled = true
-                
-                welf.currentOperation = nil
-                
-                if let cursor = cursor {
-                    welf.perform(query: query, inputCursor: cursor, completion: completion)
-                } else {
-                    completion(welf.fetchedRecords, nil)
-                    welf.fetchedRecords = []
-                }
-            }
-        }
-        
-        container.publicCloudDatabase.add(operation)
-        
-        currentOperation = operation
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movie")
-        
-        cell?.textLabel?.text = movies[indexPath.row]["title"] as? String ?? ""
-        
-        if let date = movies[indexPath.row]["releaseDate"] as? Date {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            cell?.detailTextLabel?.text = formatter.string(from: date)
-        }
-        
-        return cell ?? UITableViewCell()
-    }
-    
-}
 
-extension QueryTableViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else { return }
-        
-        self.currentLocation = location
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        DispatchQueue.main.async {
-            self.showLocationAlert()
-        }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 import UserNotifications
 
-class SubscriptionViewController: UIViewController {
+class SubscriptionViewControllerCopy: UIViewController {
 
     @IBOutlet weak var subscribeButton: UIButton!
     
